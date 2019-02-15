@@ -130,8 +130,35 @@ public class Main {
         System.out.println("Available Floors: " + availableFloors);
         System.out.println("Move-in dates: " + moveInDates);
 
+        System.out.println("Would you like to see more about our TWO BEDROOM apartments?");
+        System.out.println("'yes' or 'no' ");
+        Scanner scan = new Scanner(System.in);
+        Object input = scan.nextLine();
+        if(input.equals("yes")){
+            twoBedAmenities();
+        }if(input.equals("no")){
+            System.out.println("Going to site directory");
+            directory();
+        }
+
     }
 
+    private static void twoBedAmenities() {
+        boolean garageParking = true;
+        boolean permitParking = true;
+        boolean POOL_ACCESS = true;
+        boolean GYM_ACCESS = true;
+        System.out.println("Covered garage parking: ");
+        if(garageParking ==true){
+            System.out.println("yes");
+        }
+        System.out.println("Permit Parking: ");
+        if(permitParking==true){
+            System.out.println("yes");
+        }
+        System.out.println("Pool and Gym access: Yes");
+
+    }
 
 
     public static void directory(){
@@ -159,12 +186,59 @@ public class Main {
         System.out.println("Mon-Fri 9am-6:30pm");
         System.out.println("Sat 10am-3pm");
         System.out.println("Sun CLOSED");
+
+        System.out.println("Search other building/complex hours");
+        System.out.println("[1] Gym hours");
+        System.out.println("[2] Pool hours");
+        System.out.println("[3] Business Center Hours");
+        Scanner scan = new Scanner(System.in);
+        Object input = scan.nextLine();
+        if(input.equals("1")){
+            gymHours();
+        }
+        if(input.equals("2")){
+            poolHours();
+        }
+        if(input.equals("3")){
+            businessCenterHours();
+        }
+    }
+
+    private static void businessCenterHours() {
+        System.out.println("Business Center: ");
+        System.out.println("NOTE: Available for rent on a 2 hr basis \n" +
+                "After, the renter must book the room again ");
+        System.out.println("Hours for Rent");
+        System.out.println("Mon-Sat 9am-10pm");
+        System.out.println("Sun 10am-8pm");
+        directory();
+    }
+
+    private static void poolHours() {
+        System.out.println("Pool hours: ");
+        System.out.println("Mon-Fri 5am-10pm ");
+        System.out.println("Sat 6am-11pm");
+        System.out.println("Sun 6am-8pm");
+        directory();
+    }
+
+    private static void gymHours() {
+        System.out.println("Gym Hours: ");
+        System.out.println("24/7");
+        System.out.println("Please Note that construction or maintenance \n" +
+                "may affect these hours");
+        directory();
     }
 
     private static void leasingOfficeInfo() {
         System.out.println("LEASING OFFICE");
         System.out.println("                ");
         System.out.println("Check with our great staff!");
+        EmployeeEmail contact = new EmployeeEmail();
+        contact.name = "Stacy ";
+        contact.email = "stacyb@apartmentguide.com ";
+        contact.phone =" 1(555)232-4566";
+        System.out.println(contact.name + contact.email + contact.phone);
     }
     public static void search(){
         System.out.println("Search the site: ");
@@ -175,5 +249,13 @@ public class Main {
             directory();
 
         }
+    }
+    public static class EmployeeEmail{
+        private String name;
+        private String email;
+        private String phone;
+        
+
+
     }
 }
