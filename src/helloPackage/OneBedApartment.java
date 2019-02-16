@@ -1,8 +1,6 @@
-import helloPackage.RoomType;
+package helloPackage;
 
 public class OneBedApartment implements RoomType {
-
-
 
 
     @Override
@@ -25,3 +23,5 @@ public class OneBedApartment implements RoomType {
 
     }
 }
+
+

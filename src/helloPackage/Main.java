@@ -3,9 +3,12 @@ package helloPackage;
 import java.util.Scanner;
 
 public class Main {
-    public int status = 0;
 
     public static void main(String[] args) {
+        OneBedApartment oneBedApartment = new OneBedApartment();
+        oneBedApartment.roomOne("$1300");
+
+
         System.out.println("Welcome to Apartment Finder!");
         System.out.println("Please type for a search");
         System.out.println("        ");
@@ -15,6 +18,7 @@ public class Main {
         System.out.println("'three bedroom'");
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
+
 
 
         if(input.equals("studio")){
@@ -43,7 +47,7 @@ public class Main {
 
     }
 
-    private static void threeBedInfo() {
+    public static void threeBedInfo() {
         String threeBedRent = "$1900";
         String availableUnits = "6";
         String availableFloors = "2, 3, 5";
@@ -52,7 +56,11 @@ public class Main {
         System.out.println("Available Units: " + availableUnits);
         System.out.println("Available Floors: " + availableFloors);
         System.out.println("Move-in dates: " + moveInDates);
-        directory();
+        threeBedAmmenities();
+
+
+
+
 
     }
 
@@ -107,15 +115,23 @@ public class Main {
         boolean permitParking = false;
         boolean POOL_ACCESS = true;
         boolean GYM_ACCESS = true;
+        boolean inUnitWasherDryer = true;
         System.out.println("Covered garage parking: ");
         if(garageParking ==false){
             System.out.println("no");
+            directory();
         }
         System.out.println("Permit Parking: ");
         if(permitParking==false){
             System.out.println("no");
+            directory();
         }
         System.out.println("Pool and Gym access: Yes");
+        System.out.println("In unit washer and dryer: " );
+        if(inUnitWasherDryer == true){
+            System.out.println("yes");
+        }
+
 
 
     }
@@ -148,6 +164,7 @@ public class Main {
         boolean permitParking = true;
         boolean POOL_ACCESS = true;
         boolean GYM_ACCESS = true;
+        boolean inUnitWasherDryer = true;
         System.out.println("Covered garage parking: ");
         if(garageParking ==true){
             System.out.println("yes");
@@ -157,7 +174,17 @@ public class Main {
             System.out.println("yes");
         }
         System.out.println("Pool and Gym access: Yes");
+        System.out.println("In unit washer and dryer: ");
+        if(inUnitWasherDryer==true){
+            System.out.println("yes");
+        }
+        twoBedFloorPlans();
 
+    }
+
+    private static void twoBedFloorPlans() {
+        System.out.println("Here are the floor plans we currently \n" +
+                "have available for the TWO BEDROOM");
     }
 
 
@@ -250,12 +277,53 @@ public class Main {
 
         }
     }
+
+    public void roomStudio(String roomPrice) {
+
+    }
+
     public static class EmployeeEmail{
         private String name;
         private String email;
         private String phone;
-        
+
+    }
+    public static void threeBedAmmenities(){
+        boolean garageParking = true;
+        boolean permitParking = true;
+        boolean POOL_ACCESS = true;
+        boolean GYM_ACCESS = true;
+        System.out.println("Covered garage parking: ");
+        if(garageParking ==true){
+            System.out.println("yes");
+        }
+        System.out.println("Permit Parking: ");
+        if(permitParking==true){
+            System.out.println("yes");
+        }
+        System.out.println("Pool and Gym access: Yes");
+
+        System.out.println("Check Floor plans?");
+        System.out.println("Type 'yes' or 'no'");
+        Scanner scan = new Scanner(System.in);
+        Object input = scan.nextLine();
+        if(input.equals("yes")){
+            floorPlans();
+        }
+        if(input.equals("no")){
+            directory();
+        }
+
 
 
     }
+    public static void floorPlans(){
+
+
+
+
+    }
+
+
+
 }

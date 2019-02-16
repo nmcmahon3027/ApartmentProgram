@@ -1,13 +1,25 @@
-
+import helloPackage.Main;
 
 //Changed public to abstract
 public class Apartment extends OneBedApartment {
+
+    private Main mainOne;
+
+
+    public void setMainOne(Main mainOne){
+        this.mainOne = mainOne;
+    }
+
     private String roomFloor;
     private String roomType;
     private String roomNumber;
     private String roomPrice;
 
     public Apartment(){}
+
+    public void roomStudio(){
+        mainOne.roomStudio(getRoomPrice());
+    }
 
     public String getRoomFloor(){
         return roomFloor;
