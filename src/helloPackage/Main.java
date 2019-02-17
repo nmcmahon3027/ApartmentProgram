@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        OneBedApartment oneBedApartment = new OneBedApartment();
-        oneBedApartment.roomOne("$1300");
+
 
 
         System.out.println("Welcome to Apartment Finder!");
@@ -56,6 +55,10 @@ public class Main {
         System.out.println("Available Units: " + availableUnits);
         System.out.println("Available Floors: " + availableFloors);
         System.out.println("Move-in dates: " + moveInDates);
+
+        OneBedApartment threeBedPrice = new OneBedApartment();
+        threeBedPrice.roomStudio("$1900");
+
         threeBedAmmenities();
 
 
@@ -73,6 +76,10 @@ public class Main {
         System.out.println("Available Units: " + availableUnits);
         System.out.println("Available Floors: " + availableFloors);
         System.out.println("Move-in dates: " + moveInDates);
+
+        OneBedApartment oneBedApartment = new OneBedApartment();
+        oneBedApartment.roomOne("$1300");
+
         directory();
 
 
@@ -91,6 +98,11 @@ public class Main {
         System.out.println("Available Units: " + availableUnits);
         System.out.println("Available Floors: " + availableFloors);
         System.out.println("Move-in dates: " + moveInDates);
+
+        OneBedApartment studioPrice = new OneBedApartment();
+        studioPrice.roomStudio("$1100");
+
+
 
         System.out.println("Would you like to see more about our STUDIO apartments?");
         System.out.println("'yes' or 'no' ");
@@ -145,6 +157,9 @@ public class Main {
         System.out.println("Available Units: " + availableUnits);
         System.out.println("Available Floors: " + availableFloors);
         System.out.println("Move-in dates: " + moveInDates);
+
+        OneBedApartment twoBedApartment = new OneBedApartment();
+        twoBedApartment.roomTwo("$1600");
 
         System.out.println("Would you like to see more about our TWO BEDROOM apartments?");
         System.out.println("'yes' or 'no' ");
