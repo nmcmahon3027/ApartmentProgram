@@ -2,9 +2,14 @@
 package helloPackage;
 import java.util.Scanner;
 
-public class Main {
+public class Main extends Counter {
 
     public static void main(String[] args) {
+
+        Counter unitCount = new Counter();
+        unitCount.getValue();
+
+
 
 
 
@@ -22,20 +27,24 @@ public class Main {
 
         if(input.equals("studio")){
             System.out.println("You selected STUDIO");
+            System.out.println("Currently we have " + unitCount.bedS + " units");
             studioInfo();
         }
         if(input.equals("one bedroom")){
             System.out.println("You selected ONE BEDROOM");
+            System.out.println("Currently we have " + unitCount.bedOne + " units");
             System.out.println("Here is what we found: ");
             oneBedInfo();
         }
         if(input.equals("two bedroom")){
             System.out.println("You selected TWO BEDROOM");
+            System.out.println("Currently we have " + unitCount.bedTwo + " units");
             System.out.println("Here is what we found: ");
             twoBedInfo();
         }
         if(input.equals("three bedroom")){
             System.out.println("You selected THREE BEDROOM");
+            System.out.println("Currently we have " + unitCount.bedThree + " units");
             System.out.println("Here is what we found: ");
             threeBedInfo();
         }
@@ -57,7 +66,7 @@ public class Main {
         System.out.println("Move-in dates: " + moveInDates);
 
         OneBedApartment threeBedPrice = new OneBedApartment();
-        threeBedPrice.roomStudio("$1900");
+        threeBedPrice.roomThree("$1900");
 
         threeBedAmmenities();
 
@@ -69,6 +78,7 @@ public class Main {
 
     public static void oneBedInfo() {
          String oneBedRent = "$1300";
+         int oneBedRentNumber = 1300;
          String availableUnits = "10";
          String availableFloors = "1, 2, 4";
          String moveInDates = "April, June, July, August";
@@ -79,6 +89,25 @@ public class Main {
 
         OneBedApartment oneBedApartment = new OneBedApartment();
         oneBedApartment.roomOne("$1300");
+
+
+        System.out.println("Would you like to rent this? ");
+        System.out.println("yes or no ");
+        Scanner scan = new Scanner(System.in);
+        Object input = scan.nextLine();
+        if(input.equals("yes")){
+            Counter nn = new Counter();
+            nn.getValue();
+            nn.decrement();
+            System.out.println("there are now " + nn.bedOne + " ONE BEDROOM units left");
+            System.out.println("Thank you for your business! A representative will contact you \n" +
+                    "shortly");
+            nn.toString();
+
+
+
+        }
+
 
         directory();
 
@@ -95,7 +124,7 @@ public class Main {
         String availableFloors = "1, 2, 3, 4";
         String moveInDates = "April, May, June, July, August";
         System.out.println("Rent: " + studioRent);
-        System.out.println("Available Units: " + availableUnits);
+        System.out.println("Available Units: " + availableUnits );
         System.out.println("Available Floors: " + availableFloors);
         System.out.println("Move-in dates: " + moveInDates);
 
@@ -131,18 +160,22 @@ public class Main {
         System.out.println("Covered garage parking: ");
         if(garageParking ==false){
             System.out.println("no");
-            directory();
+            directory();//was directory
         }
         System.out.println("Permit Parking: ");
         if(permitParking==false){
             System.out.println("no");
-            directory();
+            directory();//
         }
         System.out.println("Pool and Gym access: Yes");
         System.out.println("In unit washer and dryer: " );
         if(inUnitWasherDryer == true){
             System.out.println("yes");
+            directory();
+
         }
+
+
 
 
 
@@ -200,6 +233,21 @@ public class Main {
     private static void twoBedFloorPlans() {
         System.out.println("Here are the floor plans we currently \n" +
                 "have available for the TWO BEDROOM");
+        System.out.println("Would you like to lease this TWO BEDROOM? ");
+        Scanner scan = new Scanner(System.in);
+        Object input = scan.nextLine();
+        if(input.equals("yes")){
+            Counter nn = new Counter();
+            nn.getValue();
+            nn.decrement();
+            System.out.println("There are now " + nn.bedTwo + " ONE BEDROOM units left");
+            System.out.println("and " + nn.permitParking + " permit parking spots left");
+            System.out.println("Thank you for your business! A representative will contact you \n" +
+                    "shortly");
+            nn.toString();
+
+        }
+
     }
 
 
@@ -218,6 +266,7 @@ public class Main {
         }
         if(input.equals("3")){
             System.out.println("Please enter your search");
+            //was 'rent'
             search();
         }
 
@@ -285,12 +334,43 @@ public class Main {
     public static void search(){
         System.out.println("Search the site: ");
         System.out.println("Type 'back' to go back to directory");
+        System.out.println("or 'lease' to lease this apartment");
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("back")){
             directory();
-
         }
+        if(input.equals("lease")){
+
+            Counter nn = new Counter();
+            nn.getValue();
+            nn.decrement();
+            System.out.println("there are now " + nn.bedS + " ONE BEDROOM units left");
+            System.out.println("Thank you for your business! A representative will contact you \n" +
+                    "shortly");
+            nn.toString();
+        }
+    }
+
+
+
+    public void rentPage() {
+        System.out.println("Please select the unit you would like to rent");
+        System.out.println("How many bedrooms?");
+        System.out.println("studio, one, two or three?");
+        Scanner scan = new Scanner(System.in);
+        Object input = scan.nextLine();
+        if(input.equals("studio")){
+            Counter countStudio = new Counter();
+            System.out.println("There are " + bedS + "studio apartments available");
+            System.out.println("Enjoy!");
+            countStudio.bedS --;
+            System.out.println(bedS);
+            
+
+            
+        }
+        
     }
 
     public void roomStudio(String roomPrice) {
@@ -318,12 +398,18 @@ public class Main {
         }
         System.out.println("Pool and Gym access: Yes");
 
-        System.out.println("Check Floor plans?");
+        System.out.println("Would you like to lease this apartment?");
         System.out.println("Type 'yes' or 'no'");
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("yes")){
-            floorPlans();
+            Counter nn = new Counter();
+            nn.getValue();
+            nn.decrement();
+            System.out.println("there are now " + nn.bedThree + " ONE BEDROOM units left");
+            System.out.println("and " + nn.permitParking + " permit parking spots left");
+            System.out.println("Thank you for your business! A representative will contact you \n" +
+                    "shortly");
         }
         if(input.equals("no")){
             directory();
