@@ -1,11 +1,13 @@
 import helloPackage.RoomType;
 
-public class OneBedApartment implements RoomType {
+public class OneBedApartment {
+
+}
 
 
 
 
-    @Override
+   /* @Override
     public void roomStudio(String roomPrice) {
 
     }
@@ -25,3 +27,4 @@ public class OneBedApartment implements RoomType {
 
     }
 }
+*/

@@ -26,6 +26,36 @@ public class OneBedApartment implements RoomType {
         System.out.println("The price of a three bedroom is " + roomPrice);
 
     }
+
+    public void getRequest(String rq) {
+        System.out.println("Thank you! Your request has been sent \n" +
+                "A crew member will contact you shortly " );
+    }
+
+    public void setRequest(String rq) {
+        System.out.println("You entered apartment " + rq);
+        checkFloor(rq);
+
+    }
+    public void checkFloor(String rq){
+        if(rq.startsWith("1")){
+            System.out.println("LEVEL 1 resident");
+        }
+        if(rq.startsWith("2")){
+            System.out.println("LEVEL 2 resident");
+        }
+        if(rq.startsWith("3")){
+            System.out.println("LEVEL 3 resident");
+        }
+        if(rq.startsWith("4")){
+            System.out.println("LEVEL 4 resident");
+        }
+        if( rq.startsWith("5")){
+            System.out.println("LEVEL 5 resident");
+        }
+
+
+    }
 }
 
 

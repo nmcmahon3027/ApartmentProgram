@@ -2,12 +2,14 @@
 package helloPackage;
 import java.util.Scanner;
 
-public class Main extends Counter {
+public class Main extends Counter  {
 
     public static void main(String[] args) {
 
+
         Counter unitCount = new Counter();
         unitCount.getValue();
+
 
 
 
@@ -20,6 +22,7 @@ public class Main extends Counter {
         System.out.println("'one bedroom'");
         System.out.println("'two bedroom'");
         System.out.println("'three bedroom'");
+        System.out.println("'user' (I am currently a renter and need assistance)'");
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
 
@@ -48,12 +51,45 @@ public class Main extends Counter {
             System.out.println("Here is what we found: ");
             threeBedInfo();
         }
+        if(input.equals("user")){
+            OneBedApartment request = new OneBedApartment();
+            System.out.println("Enter your apartment number");
+            Scanner scanner = new Scanner(System.in);
+            Object input2 = scanner.nextLine();
+
+
+           // if(((String) input2).charAt(0) == 3){
+                //System.out.println("You are on FLOOR 3");
+                //request.getRequest("Apartments 01-99");
+                //request.setRequest(input2.toString());
+
+
+
+
+            request.setRequest(input2.toString());
+            request.getRequest(""+ scanner);
+
+
+
+
+
+
+
+
+        }
 
 
 
 
 
     }
+
+     /*static void checkFloor() {
+
+
+
+
+    }*/
 
     public static void threeBedInfo() {
         String threeBedRent = "$1900";
