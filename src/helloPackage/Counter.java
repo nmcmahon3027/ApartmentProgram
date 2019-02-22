@@ -2,7 +2,7 @@ package helloPackage;
 
 import java.util.Scanner;
 
-public class Counter {
+public class Counter extends TwoBedroom {
 
     int bedThree;
     int bedOne;
@@ -12,6 +12,7 @@ public class Counter {
 
 
     public Counter(){
+        //Creates and counts the available apartment units that remain
         bedThree = 6;
         bedOne = 10;
         bedS = 8;

@@ -1,4 +1,5 @@
 
+
 public interface RoomInfoInterface {
 	
 	void getRent();

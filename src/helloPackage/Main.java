@@ -2,20 +2,42 @@
 package helloPackage;
 import java.util.Scanner;
 
-public class Main extends Counter  {
+public class Main extends Counter implements RoomInfoInterface {
+
+    @Override
+    public void getRent() {
+
+    }
+
+    @Override
+    public void getAvailableUnits() {
+
+    }
+
+    @Override
+    public void getAvailableFloors() {
+
+    }
+
+    @Override
+    public void getMoveInDates() {
+
+    }
+
+    @Override
+    public void getAllRoomInfo() {
+
+    }
 
     public static void main(String[] args) {
 
-
+        //creates a Counter object to keep track of
         Counter unitCount = new Counter();
         unitCount.getValue();
-
-
-
-
-
-
+        System.out.println("                ");
         System.out.println("Welcome to Apartment Finder!");
+        System.out.println("Apartment Finder is ranked Chicago's top choice for renters");
+        System.out.println("Average rent here is $1475");
         System.out.println("Please type for a search");
         System.out.println("        ");
         System.out.println("'studio'");
@@ -23,90 +45,97 @@ public class Main extends Counter  {
         System.out.println("'two bedroom'");
         System.out.println("'three bedroom'");
         System.out.println("'user' (I am currently a renter and need assistance)'");
+        //creates scanner object for user input
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
-
-
 
         if(input.equals("studio")){
             System.out.println("You selected STUDIO");
             System.out.println("Currently we have " + unitCount.bedS + " units");
+            //studioInfo(); dev note: this is where call was before instantiating instance of Studio
+            //creates an instance object for getting studio information
+            Studio studio = new Studio();
+            studio.getAllRoomInfo();
+            //Goes back to the studioInfo method after creating an instance of Studio
+            //so the program can continue
             studioInfo();
+
         }
         if(input.equals("one bedroom")){
             System.out.println("You selected ONE BEDROOM");
             System.out.println("Currently we have " + unitCount.bedOne + " units");
             System.out.println("Here is what we found: ");
+            //uses the RoomInfoInterface to call needed methods
+            RoomInfoInterface onebdrm = new RoomInfoInterface() {
+                @Override
+                public void getRent() {
+
+                }
+
+                @Override
+                public void getAvailableUnits() {
+
+                }
+
+                @Override
+                public void getAvailableFloors() {
+
+                }
+
+                @Override
+                public void getMoveInDates() {
+
+                }
+
+                @Override
+                public void getAllRoomInfo() {
+
+                }
+            };
+            onebdrm.getAllRoomInfo();
+            //goes back through oneBedInfo
             oneBedInfo();
         }
         if(input.equals("two bedroom")){
             System.out.println("You selected TWO BEDROOM");
             System.out.println("Currently we have " + unitCount.bedTwo + " units");
-            System.out.println("Here is what we found: ");
+            System.out.println("Here is more of what we found: ");
+            //creates object of type TwoBedroom to call getAllRoomInfo method
+            TwoBedroom twoBedroom = new TwoBedroom();
+            twoBedroom.getAllRoomInfo();
+            //calls so program can continue
             twoBedInfo();
         }
         if(input.equals("three bedroom")){
             System.out.println("You selected THREE BEDROOM");
             System.out.println("Currently we have " + unitCount.bedThree + " units");
             System.out.println("Here is what we found: ");
+            //creates object of type ThreeBedroom to call getAllRoomInfo
+            ThreeBedroom threeBedroom = new ThreeBedroom();
+            threeBedroom.getAllRoomInfo();
+            //calls so program can continue
             threeBedInfo();
         }
         if(input.equals("user")){
             OneBedApartment request = new OneBedApartment();
             System.out.println("Enter your apartment number");
+            //creates a new scanner for the user to input their apartment number
             Scanner scanner = new Scanner(System.in);
             Object input2 = scanner.nextLine();
-
-
-           // if(((String) input2).charAt(0) == 3){
-                //System.out.println("You are on FLOOR 3");
-                //request.getRequest("Apartments 01-99");
-                //request.setRequest(input2.toString());
-
-
-
-
+            //gets a response from the OneBedApartment class
             request.setRequest(input2.toString());
             request.getRequest(""+ scanner);
-
-
-
-
-
-
-
 
         }
 
 
-
-
-
     }
 
-     /*static void checkFloor() {
-
-
-
-
-    }*/
-
     public static void threeBedInfo() {
-        String threeBedRent = "$1900";
-        String availableUnits = "6";
-        String availableFloors = "2, 3, 5";
-        String moveInDates = "May, August, September";
-        System.out.println("Rent: " + threeBedRent);
-        System.out.println("Available Units: " + availableUnits);
-        System.out.println("Available Floors: " + availableFloors);
-        System.out.println("Move-in dates: " + moveInDates);
-
         OneBedApartment threeBedPrice = new OneBedApartment();
         threeBedPrice.roomThree("$1900");
-
+        //goes to amenities method
         threeBedAmmenities();
-
-
 
 
 
@@ -114,6 +143,7 @@ public class Main extends Counter  {
 
     public static void oneBedInfo() {
          String oneBedRent = "$1300";
+         //also created an int for future use
          int oneBedRentNumber = 1300;
          String availableUnits = "10";
          String availableFloors = "1, 2, 4";
@@ -123,9 +153,9 @@ public class Main extends Counter  {
         System.out.println("Available Floors: " + availableFloors);
         System.out.println("Move-in dates: " + moveInDates);
 
+        //creates to set this room price
         OneBedApartment oneBedApartment = new OneBedApartment();
         oneBedApartment.roomOne("$1300");
-
 
         System.out.println("Would you like to rent this? ");
         System.out.println("yes or no ");
@@ -140,34 +170,16 @@ public class Main extends Counter  {
                     "shortly");
             nn.toString();
 
-
-
         }
-
-
+        //takes user back to the 3 option directory
         directory();
-
-
-
-
-
 
     }
 
     public static void studioInfo() {
-        String studioRent = "$1100";
-        String availableUnits = "8";
-        String availableFloors = "1, 2, 3, 4";
-        String moveInDates = "April, May, June, July, August";
-        System.out.println("Rent: " + studioRent);
-        System.out.println("Available Units: " + availableUnits );
-        System.out.println("Available Floors: " + availableFloors);
-        System.out.println("Move-in dates: " + moveInDates);
-
+        //creating and setting the price
         OneBedApartment studioPrice = new OneBedApartment();
         studioPrice.roomStudio("$1100");
-
-
 
         System.out.println("Would you like to see more about our STUDIO apartments?");
         System.out.println("'yes' or 'no' ");
@@ -179,10 +191,6 @@ public class Main extends Counter  {
             System.out.println("Going to site directory");
             directory();
         }
-
-
-
-
 
 
     }
@@ -212,21 +220,11 @@ public class Main extends Counter  {
         }
 
 
-
-
-
     }
 
     public static void twoBedInfo(){
-        String twoBedRent = "$1600";
-        String availableUnits = "18";
-        String availableFloors = "1, 4, 5";
-        String moveInDates = "April, June, July, August";
-        System.out.println("Rent: " + twoBedRent);
-        System.out.println("Available Units: " + availableUnits);
-        System.out.println("Available Floors: " + availableFloors);
-        System.out.println("Move-in dates: " + moveInDates);
 
+        //creates to set this room price
         OneBedApartment twoBedApartment = new OneBedApartment();
         twoBedApartment.roomTwo("$1600");
 
@@ -262,13 +260,13 @@ public class Main extends Counter  {
         if(inUnitWasherDryer==true){
             System.out.println("yes");
         }
+        //this method is here as a helper and for future use
         twoBedFloorPlans();
 
     }
 
     private static void twoBedFloorPlans() {
-        System.out.println("Here are the floor plans we currently \n" +
-                "have available for the TWO BEDROOM");
+        System.out.println("The floor plans have been sent to your e-mail");
         System.out.println("Would you like to lease this TWO BEDROOM? ");
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
@@ -280,13 +278,14 @@ public class Main extends Counter  {
             System.out.println("and " + nn.permitParking + " permit parking spots left");
             System.out.println("Thank you for your business! A representative will contact you \n" +
                     "shortly");
+            System.out.println("Your reservation will be active for 24 hours");
             nn.toString();
 
         }
 
     }
 
-
+    //GUI directory for user
     public static void directory(){
         System.out.println("What would you like to do next?");
         System.out.println("[1] Leasing Office Information ");
@@ -302,12 +301,12 @@ public class Main extends Counter  {
         }
         if(input.equals("3")){
             System.out.println("Please enter your search");
-            //was 'rent'
+            //dev note: was 'rent'
             search();
         }
 
     }
-
+    //for showing hours of business for certain offices/areas
     private static void hours() {
         System.out.println("Leasing Office Business Hours: ");
         System.out.println("Mon-Fri 9am-6:30pm");
@@ -377,7 +376,7 @@ public class Main extends Counter  {
             directory();
         }
         if(input.equals("lease")){
-
+            //creates an instance and oject of type Counter to count units remaining
             Counter nn = new Counter();
             nn.getValue();
             nn.decrement();
@@ -388,32 +387,12 @@ public class Main extends Counter  {
         }
     }
 
-
-
-    public void rentPage() {
-        System.out.println("Please select the unit you would like to rent");
-        System.out.println("How many bedrooms?");
-        System.out.println("studio, one, two or three?");
-        Scanner scan = new Scanner(System.in);
-        Object input = scan.nextLine();
-        if(input.equals("studio")){
-            Counter countStudio = new Counter();
-            System.out.println("There are " + bedS + "studio apartments available");
-            System.out.println("Enjoy!");
-            countStudio.bedS --;
-            System.out.println(bedS);
-            
-
-            
-        }
-        
-    }
-
     public void roomStudio(String roomPrice) {
 
     }
 
     public static class EmployeeEmail{
+        //separated for possible future extensions
         private String name;
         private String email;
         private String phone;
@@ -433,7 +412,7 @@ public class Main extends Counter  {
             System.out.println("yes");
         }
         System.out.println("Pool and Gym access: Yes");
-
+        System.out.println("            ");
         System.out.println("Would you like to lease this apartment?");
         System.out.println("Type 'yes' or 'no'");
         Scanner scan = new Scanner(System.in);
@@ -448,19 +427,14 @@ public class Main extends Counter  {
                     "shortly");
         }
         if(input.equals("no")){
+            //returns to directory method to navigate back
             directory();
         }
 
-
-
     }
+    //for future use
     public static void floorPlans(){
 
-
-
-
     }
-
-
 
 }

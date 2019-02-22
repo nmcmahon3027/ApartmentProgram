@@ -1,4 +1,5 @@
 import helloPackage.Main;
+import helloPackage.Requests;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,14 +66,15 @@ public class Apartment  {//was 'extends Apartment'
         return rq;
 
     }
+    //for future extensions or implementations
+    private List<Requests> orders = new ArrayList<>();
 
-    private List<RoomType> orders = new ArrayList<RoomType>();
-
-    public List<RoomType> getOrders() {
+    //for future extensions or implementations
+    public List<Requests> getOrders() {
         return orders;
     }
-
-    public void setOrders(List<RoomType> orders) {
+    //for future extensions or implementations
+    public void setOrders(List<Requests> orders) {
         this.orders = orders;
     }
 

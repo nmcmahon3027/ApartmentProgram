@@ -1,5 +1,6 @@
+import helloPackage.Main;
 
-public class OneBedroom implements RoomInfoInterface{
+public class OneBedroom extends Main implements RoomInfoInterface{
 
 	@Override
 	public void getRent() {

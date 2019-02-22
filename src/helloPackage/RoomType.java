@@ -1,6 +1,8 @@
 package helloPackage;
 
-public interface RoomType {
+import java.util.List;
+
+public interface RoomType extends RoomInfoInterface {
 
     void roomStudio(String roomPrice);
     void roomOne(String roomPrice);
@@ -8,6 +10,7 @@ public interface RoomType {
     void roomThree(String roomPrice);
     void getRequest(String rq);
     void setRequest(String request);
+
 
 
 
