@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Counter extends TwoBedroom {
 
+        //this class will hold the number of available units for each apartment
+
     int bedThree;
     int bedOne;
     int bedS;

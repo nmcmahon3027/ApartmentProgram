@@ -37,7 +37,7 @@ public class OneBedApartment implements RoomType {
         checkFloor(rq);
 
     }
-    //checks user's apartment number
+    //checks user's apartment number to return the floor it is on
     public void checkFloor(String rq){
         if(rq.startsWith("1")){
             System.out.println("LEVEL 1 resident");
@@ -53,7 +53,7 @@ public class OneBedApartment implements RoomType {
         }
         if( rq.startsWith("5")){
             System.out.println("LEVEL 5 resident");
-            //below is for testing purposes and future addition possibilities
+            //below is for testing purposes and future additional possibilities
             Requests reqFive = new Requests();
             reqFive.getOrderDetails();
 

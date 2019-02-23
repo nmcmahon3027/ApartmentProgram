@@ -12,7 +12,7 @@ public class TwoBedroom implements RoomInfoInterface {
 	@Override
 	public void getAvailableUnits() {
 		int availableUnits;
-		availableUnits = 1;
+		availableUnits = 18;//was 1
 		if(availableUnits == 1) 
 			{
 				System.out.println("there is only " + availableUnits + " two bedroom unit available");
@@ -25,7 +25,7 @@ public class TwoBedroom implements RoomInfoInterface {
 	@Override
 	public void getAvailableFloors() {
 		String availableFloors;
-		availableFloors = "3 and 4";
+		availableFloors = "1, 4, and 5";//was 3 and 4
 		if(availableFloors.equals("1")) 
 		{
 			System.out.println("We have a two bedroom apartment available on floor " + availableFloors);
@@ -38,7 +38,7 @@ public class TwoBedroom implements RoomInfoInterface {
 	@Override
 	public void getMoveInDates() {
 		String moveInMonths;
-		moveInMonths = "June or August";
+		moveInMonths = "April, June, July or August";
 		System.out.println("You can move into a two bedroom apartment in " + moveInMonths);
 	}
 

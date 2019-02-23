@@ -137,8 +137,6 @@ public class Main extends Counter implements RoomInfoInterface {
         //goes to amenities method
         threeBedAmmenities();
 
-
-
     }
 
     public static void oneBedInfo() {
@@ -192,7 +190,6 @@ public class Main extends Counter implements RoomInfoInterface {
             directory();
         }
 
-
     }
 
     public static void studioAmenities() {
@@ -204,6 +201,7 @@ public class Main extends Counter implements RoomInfoInterface {
         System.out.println("Covered garage parking: ");
         if(garageParking ==false){
             System.out.println("no");
+            System.out.println("currently no other amenities available ");
             directory();//was directory
         }
         System.out.println("Permit Parking: ");
@@ -218,7 +216,6 @@ public class Main extends Counter implements RoomInfoInterface {
             directory();
 
         }
-
 
     }
 
@@ -383,6 +380,7 @@ public class Main extends Counter implements RoomInfoInterface {
             System.out.println("there are now " + nn.bedS + " ONE BEDROOM units left");
             System.out.println("Thank you for your business! A representative will contact you \n" +
                     "shortly");
+            System.out.println("Your request will be reserved for 24 hours ");
             nn.toString();
         }
     }
@@ -425,6 +423,7 @@ public class Main extends Counter implements RoomInfoInterface {
             System.out.println("and " + nn.permitParking + " permit parking spots left");
             System.out.println("Thank you for your business! A representative will contact you \n" +
                     "shortly");
+            System.out.println("Your request will be reserved for 24 hours ");
         }
         if(input.equals("no")){
             //returns to directory method to navigate back
@@ -432,7 +431,7 @@ public class Main extends Counter implements RoomInfoInterface {
         }
 
     }
-    //for future use
+    //for future use to show floor plans
     public static void floorPlans(){
 
     }
